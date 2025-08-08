@@ -76,6 +76,7 @@ impl TrackedGlob {
     }
 
     pub fn is_match(&self, path: impl AsRef<Path>) -> bool {
+        println!("Glob: {:?} Path: {:?}", self.matcher.glob().glob(), path.as_ref());
         let is_match = self.matcher.is_match(path);
         if is_match {
             self.mark_used();
